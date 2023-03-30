@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <form action="/card/new" method="post">
+        <div class="form-group">
+            <label for="name">이름</label>
+            <input type="text" id="name" name="name" placeholder="이름">
+            <label for="series">카드 풀</label>
+            <input type="text" id="series" name="series" placeholder="카드 풀">
+            <label for="cost">에너지</label>
+            <input type="text" id="cost" name="cost" placeholder="에너지">
+            <label for="power">파워</label>
+            <input type="text" id="power" name="power" placeholder="파워">
+            <label for="description">카드 설명</label>
+            <input type="text" id="description" name="description" placeholder="카드 설명">
+            <label for="onReveal">출현?</label>
+            <input type="text" id="onReveal" name="onReveal" placeholder="Y or N">
+            <label for="ongoing">지속?</label>
+            <input type="text" id="ongoing" name="ongoing" placeholder="Y or N">
+            <label for="noAbility">능력없음?</label>
+            <input type="text" id="noAbility" name="noAbility" placeholder="Y or N">
+        </div>
+        <button type="submit">등록</button> </form>
+</div> <!-- /container -->
+</body>
+</html>

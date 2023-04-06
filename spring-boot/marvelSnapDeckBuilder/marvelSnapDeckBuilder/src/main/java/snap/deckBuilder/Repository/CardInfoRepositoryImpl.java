@@ -1,4 +1,4 @@
-package snap.deckBuilder.Repository;
+package snap.deckBuilder.repository;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;

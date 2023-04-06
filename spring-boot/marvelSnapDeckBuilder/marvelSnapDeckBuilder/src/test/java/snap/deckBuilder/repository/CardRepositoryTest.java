@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
-import snap.deckBuilder.Repository.CardConditionRepository;
-import snap.deckBuilder.Repository.CardInfoRepository;
 import snap.deckBuilder.domain.CardCondition;
 import snap.deckBuilder.domain.CardInfo;
 

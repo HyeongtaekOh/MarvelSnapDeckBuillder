@@ -1,4 +1,4 @@
-package snap.deckBuilder.Repository;
+package snap.deckBuilder.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import snap.deckBuilder.domain.CardCondition;

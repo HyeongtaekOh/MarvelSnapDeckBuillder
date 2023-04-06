@@ -1,4 +1,4 @@
-package snap.deckBuilder.Service;
+package snap.deckBuilder.service;
 
 public class DeckMakerService {
 

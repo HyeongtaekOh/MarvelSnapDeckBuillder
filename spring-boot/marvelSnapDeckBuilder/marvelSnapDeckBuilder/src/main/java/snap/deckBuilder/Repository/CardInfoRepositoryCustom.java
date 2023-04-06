@@ -1,4 +1,4 @@
-package snap.deckBuilder.Repository;
+package snap.deckBuilder.repository;
 
 import snap.deckBuilder.domain.CardInfo;
 

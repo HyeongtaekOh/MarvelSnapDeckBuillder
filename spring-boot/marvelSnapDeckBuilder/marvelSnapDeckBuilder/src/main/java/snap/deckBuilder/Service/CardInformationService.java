@@ -1,10 +1,12 @@
-package snap.deckBuilder.Service;
+package snap.deckBuilder.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import snap.deckBuilder.Repository.CardConditionRepository;
-import snap.deckBuilder.Repository.CardInfoRepository;
+import snap.deckBuilder.repository.CardConditionRepository;
+import snap.deckBuilder.repository.CardInfoRepository;
 import snap.deckBuilder.domain.CardDTO;
 import snap.deckBuilder.domain.CardInfo;
 
@@ -21,14 +23,6 @@ public class CardInformationService {
   public CardInformationService(CardInfoRepository cardInfoRepository, CardConditionRepository cardConditionRepository) {
     this.cardInfoRepository = cardInfoRepository;
     this.cardConditionRepository = cardConditionRepository;
-  }
-
-  public List<CardInfo> findAllCardsNotETC() {
-    return cardInfoRepository.findAllBySeriesNotOrderByName("etc");
-  }
-
-  public List<CardInfo> findAllCards() {
-    return cardInfoRepository.findAllByOrderByName();
   }
 
   @Transactional
@@ -48,7 +42,26 @@ public class CardInformationService {
     cardInfo.updateCardInfoAndCondition(cardDTO);
   }
 
+  /* search cards */
   public List<CardInfo> findAllCardsOrderByCost() {
-    return cardInfoRepository.findAllByOrderByCost();
+    return cardInfoRepository.findByOrderByCost();
+  }
+
+  public List<CardInfo> findCardsNotETCOrderByName() {
+    return cardInfoRepository.findBySeriesNotOrderByName("etc");
+  }
+
+  public List<CardInfo> findAllCardsOrderByName() {
+    return cardInfoRepository.findByOrderByName();
+  }
+
+  public List<CardInfo> findCardsNoAbility() {
+    return cardInfoRepository.findByCardConditionNoAbility("Y");
+  }
+
+  /* search cards with paging and sorting */
+
+  public List<CardInfo> findCardsWithPagingAndSorting(Pageable pageable) {
+    return cardInfoRepository.findBy(pageable);
   }
 }

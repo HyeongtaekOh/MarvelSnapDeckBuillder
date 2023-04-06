@@ -1,5 +1,7 @@
-package snap.deckBuilder.Repository;
+package snap.deckBuilder.repository;
 
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import snap.deckBuilder.domain.CardInfo;
 
@@ -10,13 +12,17 @@ public interface CardInfoRepository extends JpaRepository<CardInfo, Long>, CardI
 //  @Query("select ci from CardInfo ci where ci.series <> 'etc' order by ci.name asc")
 //  List<CardInfo> findAllBySeriesNotETCOrderByName();
 
-  List<CardInfo> findAllByOrderByName();
+  List<CardInfo> findByOrderByName();
 
-  List<CardInfo> findAllBySeriesNotOrderByName(String series);
+  List<CardInfo> findBySeriesNotOrderByName(String series);
 
-  List<CardInfo> findAllByCostEquals(Byte cost);
+  List<CardInfo> findByCostEquals(Byte cost);
 
-  List<CardInfo> findAllByNameContaining(String name);
+  List<CardInfo> findByNameContaining(String name);
 
-  List<CardInfo> findAllByOrderByCost();
+  List<CardInfo> findByOrderByCost();
+
+  List<CardInfo> findByCardConditionNoAbility(String noAbility);
+
+  List<CardInfo> findBy(Pageable pageable);
 }

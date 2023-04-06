@@ -1,4 +1,4 @@
-package snap.deckBuilder.Controller;
+package snap.deckBuilder.controller;
 
 public class CardForm {
 

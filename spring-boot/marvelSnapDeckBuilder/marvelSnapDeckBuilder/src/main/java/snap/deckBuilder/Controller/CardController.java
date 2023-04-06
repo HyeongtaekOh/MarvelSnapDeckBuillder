@@ -1,11 +1,11 @@
-package snap.deckBuilder.Controller;
+package snap.deckBuilder.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import snap.deckBuilder.Service.CardInformationService;
+import snap.deckBuilder.service.CardInformationService;
 import snap.deckBuilder.domain.CardDTO;
 import snap.deckBuilder.domain.CardInfo;
 
@@ -23,12 +23,12 @@ public class CardController {
 
   @GetMapping("card")
   public @ResponseBody List<CardInfo> getAllCards() {
-    return cardInformationService.findAllCards();
+    return cardInformationService.findAllCardsOrderByName();
   }
 
   @GetMapping("card/no-etc")
   public @ResponseBody List<CardInfo> getAllCardsNotETC() {
-    return cardInformationService.findAllCardsNotETC();
+    return cardInformationService.findCardsNotETCOrderByName();
   }
 
   @GetMapping("card/cost")

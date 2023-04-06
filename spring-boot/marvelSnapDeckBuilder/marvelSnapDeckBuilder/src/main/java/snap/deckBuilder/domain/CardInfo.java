@@ -1,5 +1,6 @@
 package snap.deckBuilder.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.hibernate.Hibernate;
 import org.hibernate.annotations.DynamicUpdate;
@@ -29,7 +30,8 @@ public class CardInfo {
   @Column(name = "DESCRIPTION")
   private String description;
 
-  @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+  @JsonIgnore
+  @OneToOne(optional = false, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
   @JoinColumn(name = "CARD_ID")
   private CardCondition cardCondition;
 
